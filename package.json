@@ -1,0 +1,19 @@
+{
+  "name": "dbms-demo",
+  "version": "1.0.0",
+  "description": "Apis to perform crud operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujaysail/bank-system-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujaysail/bank-system-nodejs/issues"
+  },
+  "homepage": "https://github.com/sujaysail/bank-system-nodejs#readme"
+}
