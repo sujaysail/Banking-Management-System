@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sujaysail/bank-system-nodejs.git"
+    "url": "git+https://github.com/sujaysail/CS-623-CRUD.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sujaysail/bank-system-nodejs/issues"
+    "url": "https://github.com/sujaysail/CS-623-CRUD/issues"
   },
-  "homepage": "https://github.com/sujaysail/bank-system-nodejs#readme"
+  "homepage": "https://github.com/sujaysail/CS-623-CRUD#readme"
 }
