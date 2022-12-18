@@ -1,9 +1,10 @@
+const e = require("express");
 const db = require("../models");
 const tclientpersone = require("../models/tclientpersone");
 const Client = db.initModels.tclientpersone;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Tutorial
+// Create and Save a new Client
 exports.create = (req, res) => {
   if(!req.body.full_name) {
     res.status(400).send({
@@ -31,38 +32,86 @@ exports.create = (req, res) => {
   .catch(err => {
     res.status(500).send({
       message:
-        err.message || "Some error occurred while creating the Tutorial."
+        err.message || "Some error occurred while creating the Client."
     });
   });
 
 };
 
-// Retrieve all Tutorials from the database.
+// Retrieve all Clients from the database.
 exports.findAll = (req, res) => {
   
 };
 
-// Find a single Tutorial with an id
+// Find a single Client with an id
 exports.findOne = (req, res) => {
+  const id = req.params.id;
+  Client.findByPk(id)
+  .then(data=> {
+    res.send(data)
+  })
+  .catch(err => {
+    res.status(404).send({
+      message:
+      err.message || "Client not found"
+    })
+  })
   
 };
 
-// Update a Tutorial by the id in the request
+// Update a Client info by the id in the request
 exports.update = (req, res) => {
+  const id = req.params.id;
+
+  Client.update(req.body, {
+    where:{ id: id}
+  })
+  .then(num=> {
+    if(num == 1) {
+      res.send({
+        message: "Client updated successfully"
+      });
+    } else {
+      res.send({
+        message: `Cannot update client with id=${id}. Maybe client was not found or request body must be empty.`
+      });
+    }
+    
+  })
+  .catch(err=>{
+    res.status(500).send({
+      message: "Error updating client information with id =" + id
+    });
+  });
   
 };
 
-// Delete a Tutorial with the specified id in the request
+// Delete a Client with the specified id in the request
 exports.delete = (req, res) => {
-  
+  const id = req.params.id;
+
+  Client.destroy({
+    where: { id: id }
+  })
+  .then(num=> {
+    if(num==1){
+      res.send({
+        message: "Client deleted successfully"
+      }); 
+    } else {
+      res.send({
+        message: "Client already deleted or doesn't exists"
+      });
+    }
+  })
+  .catch(err=>{
+    res.status(404).send({
+      message: "Client could not be deleted as it doesn't or is already deleted"
+    })
+  })
 };
 
-// Delete all Tutorials from the database.
+// Delete all Clients from the database.
 exports.deleteAll = (req, res) => {
-  
-};
-
-// Find all published Tutorials
-exports.findAllPublished = (req, res) => {
   
 };
