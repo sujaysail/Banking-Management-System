@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     id_index: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     idclient: {
       type: DataTypes.INTEGER,

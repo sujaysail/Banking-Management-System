@@ -54,10 +54,3 @@ module.exports = function(sequelize, DataTypes) {
     ]
   });
 };
-       fields: [
-          { name: "id_index" },
-        ]
-      },
-    ]
-  });
-};

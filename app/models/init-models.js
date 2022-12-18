@@ -53,9 +53,7 @@ function initModels(sequelize) {
   tacc2card.belongsTo(cards_main, { as: "card_cards_main", foreignKey: "card_id"});
   cards_main.hasMany(tacc2card, { as: "card_tacc2cards", foreignKey: "card_id"});
   tacc2card.belongsTo(cards_main, { as: "card_number_cards_main_cards_main", foreignKey: "card_number"});
-  cards_main.hasMany(tacc2card, { as: "card_number_tacc2cards", foreignKey: "card_number"});
   tacc2card.belongsTo(cards_main, { as: "id_for_processor_cards_main_cards_main", foreignKey: "id_for_processor"});
-  cards_main.hasMany(tacc2card, { as: "id_for_processor_tacc2cards", foreignKey: "id_for_processor"});
   tcontractcarditem.belongsTo(cards_main, { as: "card_number_cards_main_cards_main", foreignKey: "card_number"});
   cards_main.hasMany(tcontractcarditem, { as: "card_number_tcontractcarditems", foreignKey: "card_number"});
   treferencecardsign.belongsTo(cards_main, { as: "id_index_cards_main_cards_main", foreignKey: "id_index"});
@@ -67,7 +65,6 @@ function initModels(sequelize) {
   cards_main.belongsTo(tclientpersone, { as: "idclient_tclientpersone_tclientpersone", foreignKey: "idclient"});
   tclientpersone.hasMany(cards_main, { as: "idclient_cards_mains", foreignKey: "idclient"});
   tcontract.belongsTo(tcontractcarditem, { as: "contractnumber_tcontractcarditem_tcontractcarditem", foreignKey: "contractnumber"});
-  tcontractcarditem.hasMany(tcontract, { as: "contractnumber_tcontracts", foreignKey: "contractnumber"});
   tcontract.belongsTo(tcontractcarditem, { as: "id_index_tcontractcarditem", foreignKey: "id_index"});
   tcontractcarditem.hasOne(tcontract, { as: "id_index_tcontract", foreignKey: "id_index"});
 
